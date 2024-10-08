@@ -73,4 +73,4 @@ npm run dev
 
 ## Video Demonstration
 
-[![Watch the Video]](https://streamable.com/bp6fjk)
+[[Watch the Video]](https://streamable.com/bp6fjk)
