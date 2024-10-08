@@ -29,12 +29,12 @@ export const styles: { [key: string]: React.CSSProperties } = {
         cursor: 'pointer',
         fontSize: '16px',
         fontWeight: 'bold',
-        color: '#65676b',
+        color: 'black',
         borderBottom: '2px solid transparent',
     },
     activeTab: {
-        color: '#1877f2',
-        borderBottom: '2px solid #1877f2',
+        color: '#4CAF50',
+        borderBottom: '2px solid #4CAF50',
     },
     form: {
         display: 'flex',
@@ -54,7 +54,7 @@ export const styles: { [key: string]: React.CSSProperties } = {
         border: '1px solid #dddfe2',
     },
     button: {
-        backgroundColor: '#1877f2',
+        backgroundColor: '#4CAF50',
         color: '#ffffff',
         padding: '12px',
         fontSize: '16px',

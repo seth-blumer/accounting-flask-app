@@ -5,7 +5,7 @@ import { refreshToken } from './auth/auth';
 
 // Create an Axios instance
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: `${import.meta.env.VITE_APP_API_URL}`,
 });
 
 // Set up the Axios interceptor to include the JWT token in the Authorization header
