@@ -16,7 +16,6 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 // UI components
 import { styles } from './styles/transaction-styles';
 type TransactionProps = {
-    token: string | null;
     transactions: Transaction[];
     setTransactions: React.Dispatch<React.SetStateAction<Transaction[]>>;
     categories: Category[];

@@ -11,7 +11,6 @@ import { Category } from '../../types/Category';
 import { styles } from './styles/categories-styles';
 
 interface CategoriesProps {
-    token: string | null;
     categories: Category[];
     setCategories: React.Dispatch<React.SetStateAction<Category[]>>;
 }

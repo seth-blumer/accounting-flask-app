@@ -1,7 +1,6 @@
 // Hooks
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useAuth } from '../../context/AuthContext';
 
 // Functions
 import { getTransactionsAndCategories } from '../../services/api/transactions-and-categories/get-all-data';
@@ -30,9 +29,6 @@ const Dashboard = () => {
 
     // For dispatching the logout action
     const dispatch = useDispatch();
-
-    // Use the useAuth hook to retrieve token
-    const { token } = useAuth();
 
     // Fetch categories + transactions when the component mounts
     useEffect(() => {
@@ -86,11 +82,11 @@ const Dashboard = () => {
             </div>
 
             {activeView === 'transactions' && (
-                <Transactions token={token} categories={categories} transactions={transactions} setTransactions={setTransactions} />
+                <Transactions categories={categories} transactions={transactions} setTransactions={setTransactions} />
             )}
 
             {activeView === 'categories' && (
-                <Categories token={token} categories={categories} setCategories={setCategories} />
+                <Categories categories={categories} setCategories={setCategories} />
             )}
 
             {activeView === 'income' && (
