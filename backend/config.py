@@ -14,8 +14,8 @@ app = Flask(__name__)
 # Enable CORS
 CORS(app)
 
-# Configure the database URL for SQLAlchemy (example uses PostgreSQL)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydatabase.db'  # Update this for your Azure DB
+# Configure the database URL for SQLAlchemy 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydatabase.db'  # Update this for Azure DB when deployed
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Set the secret key for JWT
