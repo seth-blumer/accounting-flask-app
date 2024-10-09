@@ -3,12 +3,9 @@ import { Provider } from 'react-redux';
 import { store } from "./redux/store";
 import App from './App.tsx'
 import "./index.css"
-import { AuthProvider } from './context/AuthContext.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    <App />
   </Provider>
 )
