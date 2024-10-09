@@ -1,15 +1,18 @@
 // Hooks
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 
 // Functions
 import { getTransactionsAndCategories } from '../../services/api/transactions-and-categories/get-all-data';
+import { getTotalRevenuesAndExpenses } from "./functions/getTotalRevenuesAndExpenses";
 import { logoutInitiate } from '../../redux/actions';
 
 // External components
+import Button from '../../components/buttons/Button';
 import Transactions from '../transactions/Transactions';
 import Categories from '../categories/Categories';
-import Button from '../../components/buttons/Button';
+import IncomeStatement from '../income-statement/IncomeStatement';
+
 
 // Types
 import { Transaction } from '../../types/Transaction';
@@ -35,7 +38,6 @@ const Dashboard = () => {
         const fetchTransactionsAndCategories = async () => {
             try {
                 const data = await getTransactionsAndCategories(); // Call the imported function
-                console.log(data);
 
                 setTransactions(data.transactions); // Set the transactions state
                 setCategories(data.categories); // Set the categories state directly
@@ -46,6 +48,10 @@ const Dashboard = () => {
 
         fetchTransactionsAndCategories();
     }, []);
+
+    // Memoize revenues and expenses to prevent recalculating on net income on every render to use on income statement;
+    // at scale (if there are a lot of revenues and expenses) this would sow performance of app
+    const { revenues, expenses } = useMemo(() => getTotalRevenuesAndExpenses(transactions), [transactions]);
 
     return (
         <div style={styles.dashboard}>
@@ -90,8 +96,7 @@ const Dashboard = () => {
             )}
 
             {activeView === 'income' && (
-                // TODO: Create and show IncomeStatement component
-                <></>
+                <IncomeStatement revenues={revenues} expenses={expenses} />
             )}
         </div>
     );

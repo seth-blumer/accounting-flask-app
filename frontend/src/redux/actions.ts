@@ -117,7 +117,6 @@ export const loginInitiate = (username: string, password: string) => {
     dispatch(loginStart());
     try {
       const response = await axios.post("/login", { username, password });
-      console.log(response.data)
       const { access_token, user } = response.data;
 
       // Store the token in localStorage; just for demo purposes
